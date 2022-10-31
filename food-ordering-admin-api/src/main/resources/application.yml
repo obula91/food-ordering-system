@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: food-ordering-admin-api
+  config:
+    import: optional:configserver:http://localhost:8000
+   
+server:  port: 8002

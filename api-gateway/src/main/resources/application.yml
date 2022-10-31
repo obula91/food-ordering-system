@@ -1,0 +1,65 @@
+
+   
+eureka:
+  instance:    ip-address: true
+    hostname: localhost      client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:  port: 8080
+  
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders:
+              - content-type
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              
+      routes:
+      - id: pgService
+        uri: http://localhost:8002/
+        predicates:
+        - Path=/admin/**
+        filters: 
+         - name: CircuitBreaker
+           args:
+              name: admin-api
+              fallbackuri: forward:/userServiceFallBack
+      - id: pgService
+        uri: http://localhost:8001/
+        predicates:
+        - Path=/customer/**
+        filters: 
+         - name: CircuitBreaker
+           args:
+              name: user-api
+              fallbackuri: forward:/userServiceFallBack    
+      - id: foodService
+        uri: http://localhost:8003/
+        predicates:
+        - Path=/food/**
+        filters: 
+         - name: CircuitBreaker
+           args:
+              name: food-api
+              fallbackuri: forward:/userServiceFallBack   
+         
+  application:
+    name: api-gateway
+    
+
+  
+      
+  
+
+
+
+ 

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: food-orderning-cloud-config-api
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/obula91/food-ordering-system.git
+          username: obula91
+          password: Obula@9704
+          clone-on-start: true
+server:
+  port: 8000
+         
