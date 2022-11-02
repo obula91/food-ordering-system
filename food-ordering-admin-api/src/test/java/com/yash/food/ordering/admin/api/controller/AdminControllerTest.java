@@ -72,10 +72,16 @@ public class AdminControllerTest {
 	
 	@Test
 	public void testDeleteFoodItemById() {
-		Map<String, Integer> params=new HashMap<>();
-		params.put("id", 1);
-		//Mockito.when(restTemplate.delete("http://localhost:8003/food/foodItems/{id}", params))
+		
 		assertNotEquals("", adminController.deleteFoodItemById(1));
+	}
+	
+	@Test
+	public void testGetFoodItemsByCategory() {
+		Food[] foods= {new Food(1, name, name, name, 1, name)};
+		Mockito.when(restTemplate.getForEntity("http://localhost:8003/food/foodItems/", Food[].class)).thenReturn(new ResponseEntity<>(foods,HttpStatus.OK));
+		Food[] response=adminController.getFoodItemsByCategory(name);
+		assertNotEquals(2, response.length);
 	}
 	
 	
