@@ -8,16 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+/**
+ * 
+ * The class Food
+ *
+ */
 public class Food {
-
+	/**the food_id */
+	
 	private int food_id;
+	/**the food_name */
 	private String food_name;
+	/**the food_description*/
 	private String food_description;
+	/**the food_image */
 	private String food_image;
+	/**the price */
 	private int price;
+	/**the category */
 	private String category;
 
+	
 	public Food(int food_id, String food_name, String food_description, String food_image, int price,String category) {
 		super();
 		this.food_id = food_id;

@@ -90,7 +90,11 @@ public class CustomerController {
 	
 	
 	
-
+	/**
+	 *  the getAllFoodItems
+	 * @return Food[]
+	 * 
+	 */
 	@GetMapping("/foodItems")
 	public Food[] getAllFoodItems() {
 		
