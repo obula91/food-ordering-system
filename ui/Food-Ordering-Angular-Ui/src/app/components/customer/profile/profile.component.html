@@ -1,0 +1,58 @@
+<div>
+  <div class="d-flex justify-content-between m-4">
+    <h3 style="margin-left:55px;">Order History</h3>
+    <div>
+      <button class="btn-warning center" (click)="goToHome()">Go to home</button>
+    </div>
+  </div>
+  <div class="mb-3 text-center">
+    <table width="75%" height="350" class="m-3">
+      <tr>
+        <th class="p-2">Food Name</th>
+        <th>Food Description</th>
+        <th>Food Price</th>
+      </tr>
+      <tr *ngFor="let item of customerOrderHistory">
+        <td class="p-2">{{item.food_name}}</td>
+        <td>{{item.food_description}}</td>
+        <td>{{item.price}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- <div class="card p-4">
+    <div
+      class="image d-flex flex-column justify-content-center align-items-center"
+    >
+      <span class="name mt-3"> Customer Email: {{ customerEmail }}</span>
+      <span class="text"> Customer Name : {{ customerName }} </span>
+      <div class="text mt-3">
+        <span> Customer Address : {{ customerAddress }} </span>
+      </div>
+      <div class="d-flex mt-2">
+        <button class="btn1 btn-dark" (click)="goToUpdate()" >Edit Profile</button>
+      </div> -->
+
+  <!-- <div
+        class="
+          gap-3
+          mt-3
+          icons
+          d-flex
+          flex-row
+          justify-content-center
+          align-items-center
+        "
+      >
+        <span><i class="fa fa-twitter"></i></span>
+        <span><i class="fa fa-facebook-f"></i></span>
+        <span><i class="fa fa-instagram"></i></span>
+        <span><i class="fa fa-linkedin"></i></span>
+      </div>
+      <!-- <div class="px-2 rounded mt-4 date">
+        <span class="join"></span>
+      </div> -->
+  <!-- </div>  -->
+  <!-- </div> -->
+
+</div>

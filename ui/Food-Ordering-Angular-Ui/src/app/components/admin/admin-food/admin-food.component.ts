@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Food } from './food';
+import { FoodService } from './food.service';
+import { AdminHomeComponent } from '../admin-home/admin-home.component';
+
+@Component({
+  selector: 'app-admin-food',
+  templateUrl: './admin-food.component.html',
+  styleUrls: ['./admin-food.component.css']
+})
+export class AdminFoodComponent implements OnInit {
+  foodItems:Array<Food>=[];
+  food = new Food();
+  deleteMessage:string='';
+  constructor(private adminFoodService:FoodService,private routerObj:Router) { }
+
+  ngOnInit(): void {
+    this.adminFoodService.getFoodItems().subscribe(
+      (response: any) => this.handleSuccessfulResponse(response)
+
+    );
+    
+  }
+  handleSuccessfulResponse(response: any) { 
+    this.foodItems = response;
+    console.log(this.foodItems)
+  }
+
+  deleteFoodItem(id:number){
+    this.adminFoodService.deleteFoodItem(id).subscribe(
+      data=>{
+        console.log(data)
+        this.deleteMessage = "deleted successfully";
+      },
+      error => console.log(error)  
+    );
+    //this.routerObj.navigate(['admin/register']);
+   window.location.reload();
+   
+  }
+  addFoodItem(){
+    this.adminFoodService.addFoodItem(this.food).subscribe(
+      data=>{
+        console.log(data)
+      },
+      error=>{
+        console.log(error);
+      }
+      
+    
+    );
+    window.location.reload();
+  }
+
+  getFoodItems() {
+    return this.foodItems;
+  }
+}
+
+

@@ -50,11 +50,24 @@ spring:
          - name: CircuitBreaker
            args:
               name: food-api
-              fallbackuri: forward:/userServiceFallBack   
+              fallbackuri: forward:/userServiceFallBack 
+      - id: foodService
+        uri: http://localhost:8008/
+        predicates:
+        - Path=/orderItem/**
+        filters: 
+         - name: CircuitBreaker
+           args:
+              name: food-api
+              fallbackuri: forward:/userServiceFallBack          
          
   application:
     name: api-gateway
-    
+
+
+logging:
+  file:
+   path: order-gateway    
 
   
       

@@ -5,3 +5,8 @@ spring:
     import: optional:configserver:http://localhost:8000
    
 server:  port: 8002
+
+
+logging:
+  file:
+   path: order-admin

@@ -11,4 +11,9 @@ spring:
           clone-on-start: true
 server:
   port: 8000
-         
+
+
+logging:
+  file:
+   path: order-cloud  
+          
