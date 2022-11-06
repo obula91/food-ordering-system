@@ -24,6 +24,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProfileComponent } from './components/customer/profile/profile.component';
 import { CartComponent } from './components/customer/cart/cart.component';
+import { OrdernotificationComponent } from './components/admin/ordernotification/ordernotification.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { CartComponent } from './components/customer/cart/cart.component';
     AboutComponent,
     ProfileComponent,
     CartComponent,
+    OrdernotificationComponent,
+    
     
   ],
   imports: [

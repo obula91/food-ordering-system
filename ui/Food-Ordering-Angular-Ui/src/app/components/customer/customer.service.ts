@@ -30,6 +30,14 @@ export class CustomerService {
   }
 
   public getOrderItems(customerMail: any) {
-    return this.httpClient.get('http://localhost:8080/orderItem/orders/'+ customerMail)
+    return this.httpClient.get('http://localhost:8080/orderItem/orders/'+ customerMail);
+  }
+
+  public getCustomerOrderItems() {
+    return this.httpClient.get('http://localhost:8080/orderItem/orders/status/In Progress')
+  }
+
+  public acceptRejectOrders(item:any) {
+    return this.httpClient.post<any>("http://localhost:8080/orderItem/orderStatus",item); 
   }
 }

@@ -1,0 +1,31 @@
+<div>
+    <div class="d-flex justify-content-between m-4">
+        <h3 style="margin-left:55px;">Order History</h3>
+        <div>
+            <button class="btn-warning center" (click)="goToHome()">Go to home</button>
+        </div>
+    </div>
+    <div *ngIf="!customerOrderHistory.length" class="font-weight-bold m-3 text-center">Currently no orders available to Accept/Reject</div>
+    <div *ngIf="customerOrderHistory.length" class="mb-3 text-center">
+        <table width="75%" height="350" class="m-3">
+            <tr>
+                <th>User ID</th>
+                <th>Order Name</th>
+                <th>Order ID</th>
+                <th>Order Price</th>
+                <th>Accept/Reject</th>
+            </tr>
+            <tr *ngFor="let item of customerOrderHistory">
+                <td>{{item.adminEmail}}</td>
+                <td>{{item.food_name}}</td>
+                <td>{{item.order_id}}</td>
+                <td>&#36;{{item.price}}</td>
+                <td>
+                    <div>
+                        <button class="mx-2 btn-success" (click)="orderStatus('Accepted', item)">Accept</button>
+                        <button class="btn-danger" (click)="orderStatus('Rejected', item)">Reject</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>

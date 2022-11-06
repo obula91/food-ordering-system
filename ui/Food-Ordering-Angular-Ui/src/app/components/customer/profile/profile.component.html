@@ -16,7 +16,7 @@
       <tr *ngFor="let item of customerOrderHistory">
         <td class="p-2">{{item.food_name}}</td>
         <td>{{item.food_description}}</td>
-        <td>{{item.price}}</td>
+        <td>&#36;{{item.price}}</td>
         <td>{{item.status ? item.status : 'In Progress'}}</td>
       </tr>
     </table>

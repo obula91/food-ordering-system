@@ -28,4 +28,8 @@ export class AdminHomeComponent implements OnInit {
     this.routerObj.navigate(['customer/profile']);
   }
 
+  goToNotifications() {
+    this.routerObj.navigate(['admin/ordernotification']);
+  }
+
 }
