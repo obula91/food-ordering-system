@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminRegisterComponent } from './components/admin/admin-register/admin-register.component';
+import { CartComponent } from './components/customer/cart/cart.component';
 import { CustomerHomeComponent } from './components/customer/customer-home/customer-home.component';
 import { CustomerLoginComponent } from './components/customer/customer-login/customer-login.component';
 import { CustomerRegisterComponent } from './components/customer/customer-register/customer-register.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'customer/register',component:CustomerRegisterComponent},
   {path:'menus/',component:MenuItemsComponent},
   {path:'customer/profile',component:ProfileComponent},
+  {path: 'customer/cart', component: CartComponent}
   
 ];
 

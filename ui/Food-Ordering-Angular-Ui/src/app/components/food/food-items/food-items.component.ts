@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../customer/customer.service';
 import { Food } from '../food';
 import { FoodService } from '../food.service';
 
@@ -10,13 +11,14 @@ import { FoodService } from '../food.service';
 export class FoodItemsComponent implements OnInit {
 
   foodItems:Array<Food>=[];
-  foodCart:Array<Food> = [];
+  foodCart:any = [];
   food = new Food();
   isEmpty:boolean=false;
   deleteMessage:string='';
   totalPrice : number=0;
   customerMail = localStorage.getItem('customerEmail');
-  constructor(private foodService:FoodService) { }
+  constructor(private foodService:FoodService,
+    private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.foodService.getFoodItems().subscribe(
@@ -37,6 +39,8 @@ export class FoodItemsComponent implements OnInit {
     this.isEmpty=true;
     console.log(selectedFood)
     alert(selectedFood.food_name + ' added to cart');
+    this.customerService.customerOrders = this.foodCart;
+
   }
   deleteItemFromCart(selectedFood:Food){
       const indexofItem = this.foodCart.indexOf(selectedFood);
@@ -51,7 +55,7 @@ export class FoodItemsComponent implements OnInit {
       alert("please select at least one food item")
     }
     else{
-      this.foodCart.map(item => {
+      this.foodCart.map((item:any) => {
         item.customerMail = this.customerMail;
       });
       this.foodService.getOrderItems(this.foodCart).subscribe(

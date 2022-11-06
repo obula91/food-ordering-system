@@ -1,0 +1,56 @@
+<div>
+    <div *ngIf="!cartData.length" class="font-weight-bold mt-4 text-center">Cart is empty please select food items to
+        place an order</div>
+        <div class="mt-2 mx-2 d-flex justify-content-between">
+            <button class="btn btn-warning col-md-3 offset-1 ms-1" (click)="viewProfile()">
+                View History
+            </button>
+            <button class="btn btn-warning col-md-3 offset-1 ms-1" (click)="goToHome()">
+                Goto Home
+            </button>
+        </div>
+    <div class="container" *ngIf="cartData.length">
+        <div class="container row" style="margin-top: 20px; border: 1px solid #333">
+            <div class="mt-2">
+                <h3>Cart Items</h3>
+            </div>
+            <hr />
+
+            <div class="row col-md-3 ml-sm-auto col-lg-4 pb-3 px-4" *ngFor="let foodItem of cartData">
+                <div class="card" style="width: 18rem; height: 32rem; text-transform: capitalize">
+                    <img src="{{ foodItem.food_image }}" class="card-img-top" alt="..." style="
+              width: 250px;
+              height: 250px;
+              margin-top: 10px;
+              margin-left: 10px;
+            " />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ foodItem.food_description }}</h5>
+                        <hr />
+                        <h5 class="card-title">Category : {{ foodItem.category }}</h5>
+
+                        <p class="card-text">
+                            {{ foodItem.food_name }}
+                        </p>
+                        <h3>{{ foodItem.price }} $</h3>
+                        <button class="btn btn-danger" (click)="deleteItemFromCart(foodItem)">
+                            Delete Item
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="container row">
+                <h3 class="col-md-3">Total Price = {{ totalPrice }}</h3>
+                <button class="btn btn-success col-md-3 mb-2" (click)="placeOrder()">
+                    Place order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+</div>

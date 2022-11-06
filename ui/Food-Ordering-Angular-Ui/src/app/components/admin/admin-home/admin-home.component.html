@@ -2,7 +2,10 @@
   <br />
 
   <h3 class="col-md-4">Welcome {{ adminEmail }}</h3>
-  <button class="btn btn-warning" (click)="logoutAdmin()">Logout</button>
+  <div class="m-2 d-flex justify-content-between">
+    <button class="btn btn-warning" (click)="logoutAdmin()">Logout</button>
+    <button class="btn btn-warning">Order Notifications</button>
+  </div>
 
   <div class="container" style="border: 1px solid #333">
     <app-admin-food></app-admin-food>

@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProfileComponent } from './components/customer/profile/profile.component';
+import { CartComponent } from './components/customer/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ProfileComponent } from './components/customer/profile/profile.componen
     ContactComponent,
     AboutComponent,
     ProfileComponent,
+    CartComponent,
     
   ],
   imports: [
